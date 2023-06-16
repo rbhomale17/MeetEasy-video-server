@@ -1,6 +1,36 @@
 const createButton = document.querySelector("#createroom");
 const codeCont = document.querySelector('#roomcode');
 const joinBut = document.querySelector('#joinroom');
+let userDetails = localStorage.getItem('userDetails') || {};
+
+let header = document.querySelector("header");
+let menu = document.querySelector("#menu-icon");
+let navbar = document.querySelector(".navbar");
+
+window.addEventListener("scroll", () => {
+    header.classList.toggle("shadow", window.scrollY > 0);
+});
+
+menu.onclick = () => {
+    navbar.classList.toggle("active");
+};
+window.onscroll = () => {
+    navbar.classList.remove("active");
+};
+
+let amount = localStorage.getItem('amount') || {};
+function logout() {
+
+    localStorage.removeItem('userDetails');
+    localStorage.removeItem('amount');
+    location.href = 'index.html' // add netlify link here
+
+}
+
+// userDetails.name = 'rushi'
+let signUser = document.getElementById('username');
+
+signUser.textContent = `${userDetails.name}`
 
 let userName
 const createroomtext = 'Creating Meeting...';
@@ -17,9 +47,9 @@ createButton.addEventListener('click', (e) => {
         showCancelButton: true,
         confirmButtonText: 'Join',
         showLoaderOnConfirm: true,
-        preConfirm:(text)=>{
+        preConfirm: (text) => {
             // localStorage.setItem("userName",JSON.stringify(text))
-            userName=text
+            userName = text
         },
         allowOutsideClick: () => !Swal.isLoading()
     }).then((result) => {
@@ -27,7 +57,7 @@ createButton.addEventListener('click', (e) => {
             createButton.disabled = true;
             createButton.innerHTML = 'Creating Meeting';
             createButton.classList = 'createroom-clicked';
-        
+
             setInterval(() => {
                 if (createButton.innerHTML < createroomtext) {
                     createButton.innerHTML = createroomtext.substring(0, createButton.innerHTML.length + 1);
@@ -36,9 +66,9 @@ createButton.addEventListener('click', (e) => {
                     createButton.innerHTML = createroomtext.substring(0, createButton.innerHTML.length - 3);
                 }
             }, 500);
-        
+
             window.location.href = "/room";
-            
+
         }
     })
 
@@ -56,9 +86,9 @@ joinBut.addEventListener('click', (e) => {
         showCancelButton: true,
         confirmButtonText: 'Join',
         showLoaderOnConfirm: true,
-        preConfirm:(text)=>{
+        preConfirm: (text) => {
             // localStorage.setItem("userName",JSON.stringify(text))
-            const userName=text
+            const userName = text
         },
         allowOutsideClick: () => !Swal.isLoading()
     }).then((result) => {
@@ -69,7 +99,7 @@ joinBut.addEventListener('click', (e) => {
             }
             const code = codeCont.value;
             window.location.href = `/${code}`;
-        
+
         }
     })
 

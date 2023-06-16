@@ -149,6 +149,12 @@ nav .logo {
   font-weight: bold;
   color: #232931;
 }
+#joinroom{
+  border: 0.5px solid;
+    padding: 2px;
+  font-size: 22px;
+  background-color: #a6f0b3;
+}
 .main .create-join .joinroom:hover {
   cursor: pointer;
   text-decoration: underline;
@@ -1053,16 +1059,18 @@ nav .logo {
 }
 
   .room_container{
-    background-image: linear-gradient(rgb(248, 244, 247), rgb(240, 242, 247)); 
-    width: 30%;
-    height: 50%;
+    background-image: linear-gradient(rgb(194, 248, 235), rgb(154, 243, 237)); 
+    width: 70%;
+    /* height: 50%; */
     margin: auto;
     border: 1px solid black;
     border-radius: 10px;
     padding-bottom: 5%;
     padding-left: 4%;
-    margin-top: 30px;
-    box-shadow: rgba(69, 46, 240, 0.4) 5px 5px, rgba(46, 46, 240, 0.3) 10px 10px, rgba(62, 46, 240, 0.2) 15px 15px, rgba(82, 46, 240, 0.1) 20px 20px, rgba(65, 46, 240, 0.05) 25px 25px;
+    margin-top: 150px;
+    /* background-color: #00FFFF; */
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+    /* box-shadow: rgba(69, 46, 240, 0.4) 5px 5px, rgba(46, 46, 240, 0.3) 10px 10px, rgba(62, 46, 240, 0.2) 15px 15px, rgba(82, 46, 240, 0.1) 20px 20px, rgba(65, 46, 240, 0.05) 25px 25px; */
 }
 
 *{

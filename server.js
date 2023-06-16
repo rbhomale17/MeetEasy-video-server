@@ -16,6 +16,13 @@ app.get('/', (req, res) => {
     res.render("door")
 })
 
+app.set('view engine', 'ejs'); // Set EJS as the template engine
+
+app.get('/view', (req, res) => {
+    console.log(__dirname);
+  res.render('door'); // Replace 'your-ejs-file' with the actual filename (without the extension) of your EJS file
+});
+
 app.get('/room', (req, res) => {
     res.redirect(`/${uuidv4()}`)
 })
